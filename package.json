@@ -1,0 +1,24 @@
+{
+  "name": "atlas-b2b-saas-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Next.js App Router B2B starter with Atlas organizations — org switcher, members, and a protected org dashboard.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@atlasauth/nextjs": "^0.1.4",
+    "@atlasauth/react": "^0.1.30",
+    "next": "^15.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.2"
+  }
+}
