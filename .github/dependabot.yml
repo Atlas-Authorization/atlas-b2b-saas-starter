@@ -8,3 +8,9 @@ updates:
       atlas-sdks:
         patterns:
           - "@atlasauth/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
