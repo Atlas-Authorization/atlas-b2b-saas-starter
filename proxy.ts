@@ -1,9 +1,9 @@
-import { atlasMiddleware } from '@atlasauth/nextjs';
 import { NextResponse, type NextRequest } from 'next/server';
+import { atlasProxy, withAtlasHeaders } from '@atlasauth/nextjs';
 
 // Protect everything except the marketing home + the sign-in route. The
 // /dashboard route requires a signed-in user with an active organization.
-const handle = atlasMiddleware({
+const atlas = atlasProxy({
   jwksUrl: process.env.ATLAS_JWKS_URL ?? process.env.NEXT_PUBLIC_ATLAS_JWKS_URL ?? '',
   issuer: process.env.ATLAS_ISSUER ?? process.env.NEXT_PUBLIC_ATLAS_ISSUER ?? '',
   publishableKey: process.env.NEXT_PUBLIC_ATLAS_PUBLISHABLE_KEY,
@@ -11,11 +11,8 @@ const handle = atlasMiddleware({
   publicRoutes: ['/', '/sign-in(.*)'],
 });
 
-export function middleware(request: NextRequest) {
-  return handle(
-    request as unknown as Parameters<typeof handle>[0],
-    NextResponse as unknown as Parameters<typeof handle>[1],
-  );
+export async function proxy(request: NextRequest) {
+  return (await atlas(request)) ?? withAtlasHeaders(request, NextResponse.next());
 }
 
 export const config = {

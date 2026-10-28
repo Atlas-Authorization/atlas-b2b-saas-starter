@@ -4,7 +4,7 @@ A multi-tenant **B2B** starter on Next.js (App Router) + Atlas **organizations**
 
 ## What's wired
 
-- **`middleware.ts`** — `atlasMiddleware()` (`@atlasauth/nextjs`) protects every
+- **`proxy.ts`** — `atlasProxy()` (`@atlasauth/nextjs`) protects every
   route except `/` and `/sign-in`.
 - **`app/page.tsx`** — `<OrganizationSwitcher>` (pick / create / leave an org),
   `<UserButton>`, and `useOrganization()` to show the active org. The chosen org

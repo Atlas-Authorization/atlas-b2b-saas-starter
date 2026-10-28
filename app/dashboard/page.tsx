@@ -6,7 +6,7 @@ import Link from 'next/link';
  * A protected ORG dashboard (server component).
  *
  * `auth()` verifies the session from the ambient request. We defend in depth
- * past the middleware: signed-out visitors go to sign-in, and a signed-in user
+ * past the proxy: signed-out visitors go to sign-in, and a signed-in user
  * with no ACTIVE organization is asked to pick one on the home page.
  *
  * Member listing uses the Backend API (`atlasClient().organizations`) with the
